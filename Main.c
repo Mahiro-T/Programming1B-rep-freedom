@@ -63,7 +63,7 @@ void change_status(void *d)
     //data = &((k->dialogs_p)->Enemy2_status);
     char buf3[256];
     sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
-    gtk_label_set_text(GTK_LABEL((GtkWidget *)(k->dialogs_p))->Enemy2_status, buf3);
+    gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf3);
     printf("OUT:");
 }
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
