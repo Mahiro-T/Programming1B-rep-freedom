@@ -108,13 +108,13 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
     srand((unsigned)time(NULL));
     damage = (k->hero_p)->magic_attack + rand() % (k->hero_p)->lucky;
 
-    if (rand() % 1 == 1 && *k->enemy_1_alive_p == 0)
+    if (rand() % 2 == 1 && *k->enemy_1_alive_p == 1)
     {
         (k->enemy_1_p)->hp -= damage;
         if ((k->enemy_1_p)->hp <= 0)
             k->enemy_1_alive_p = 0;
     }
-    else if (rand() % 1 == 1 && *k->enemy_2_alive_p == 0)
+    else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         (k->enemy_2_p)->hp -= damage;
@@ -132,16 +132,14 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
 void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    printf("IN:");
     int healing;
     char message;
 
-    //healing = (k->hero_p)->healing + (k->hero_p)->lucky;
+    healing = (k->hero_p)->healing + (k->hero_p)->lucky;
 
-    //(k->hero_p)->hp = (k->hero_p)->hp + healing;
+    (k->hero_p)->hp += healing;
 
     printf("%d\n", (k->hero_p)->hp);
-    printf("OUT:");
 
     change_status(k);
 }
@@ -149,18 +147,17 @@ void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    printf("IN1");
     int damage;
     char message[256];
     srand((unsigned)time(NULL));
     damage = rand() % 10 + 1;
-    if (rand() % 1 == 1 && *k->enemy_1_alive_p == 0)
+    if (rand() % 2 == 1 && *k->enemy_1_alive_p == 1)
     {
         (k->enemy_1_p)->hp -= damage;
         if ((k->enemy_1_p)->hp <= 0)
             k->enemy_1_alive_p = 0;
     }
-    else if (rand() % 1 == 1 && *k->enemy_2_alive_p == 0)
+    else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         (k->enemy_2_p)->hp -= damage;
@@ -171,7 +168,6 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
     {
         //攻撃を外す
     }
-    printf("OUT1:");
 
     change_status(k);
 }
