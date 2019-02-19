@@ -49,22 +49,25 @@ void change_status(void *d)
 {
     Pointer_Addres *k = d;
 
-    printf("IN");
+    //printf("IN");
     //gpointer data = &((k->dialogs_p)->your_status);
     char buf[256];
     sprintf(buf, "%s HP:%03d", ((k->hero_p)->name), ((k->hero_p)->hp));
+    printf("%s", buf);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->your_status), buf);
 
     //data = &((k->dialogs_p)->Enemy1_status);
     char buf2[256];
     sprintf(buf2, "%s HP:%03d", (k->enemy_1_p)->name, (k->enemy_1_p)->hp);
+    printf("%s", buf2);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf2);
 
     //data = &((k->dialogs_p)->Enemy2_status);
     char buf3[256];
     sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
-    gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf3);
-    printf("OUT:");
+    printf("%s", buf3);
+    gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
+    //printf("OUT:");
 }
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
@@ -94,7 +97,7 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
     }
     printf("OUT:");
 
-    change_status(&k);
+    change_status(k);
 }
 void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
@@ -124,7 +127,7 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
     }
     printf("OUT:");
 
-    change_status(&k);
+    change_status(k);
 }
 void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 {
@@ -140,7 +143,7 @@ void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
     printf("%d\n", (k->hero_p)->hp);
     printf("OUT:");
 
-    //change_status(k);
+    change_status(k);
 }
 
 void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
@@ -170,7 +173,7 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
     }
     printf("OUT1:");
 
-    //change_status(k);
+    change_status(k);
 }
 
 int main(int argc, char **argv)
