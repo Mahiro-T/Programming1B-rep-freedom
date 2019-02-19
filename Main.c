@@ -84,6 +84,10 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
             (k->enemy_1_p)->hp = 0;
             *(k->enemy_1_alive_p) = 0;
         }
+        else
+        {
+            sprintf(message, "%s のこうげき! %s は %s に %d のダメージをあたえた!", (k->hero_p)->name, (k->hero_p)->name, (k->enemy_1_p)->name, damage);
+        }
     }
     else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
@@ -94,10 +98,15 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
             (k->enemy_2_p)->hp = 0;
             *(k->enemy_2_alive_p) = 0;
         }
+        else
+        {
+            sprintf(message, "%s のこうげき! %s は %s に %d のダメージをあたえた!", (k->hero_p)->name, (k->hero_p)->name, (k->enemy_2_p)->name, damage);
+        }
     }
     else
     {
         //攻撃を外す
+        sprintf(message, "%s のこうげき! しかし %s のこうげきははずれてしまった!", (k->hero_p)->name, (k->hero_p)->name);
     }
 
     change_status(k);
@@ -117,6 +126,10 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
         {
             (k->enemy_1_p)->hp = 0;
             *(k->enemy_1_alive_p) = 0;
+        }
+        else
+        {
+            sprintf(message, "%s のこうげき! %s は %s に %d のダメージをあたえた!", (k->hero_p)->name, (k->hero_p)->name, (k->enemy_1_p)->name, damage);
         }
     }
     else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
