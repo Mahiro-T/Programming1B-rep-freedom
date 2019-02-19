@@ -53,16 +53,19 @@ void change_status(void *d)
     //gpointer data = &((k->dialogs_p)->your_status);
     char buf[256];
     sprintf(buf, "%s HP:%03d", ((k->hero_p)->name), ((k->hero_p)->hp));
+    printf("%s", buf);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->your_status), buf);
 
     //data = &((k->dialogs_p)->Enemy1_status);
     char buf2[256];
     sprintf(buf2, "%s HP:%03d", (k->enemy_1_p)->name, (k->enemy_1_p)->hp);
+    printf("%s", buf2);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf2);
 
     //data = &((k->dialogs_p)->Enemy2_status);
     char buf3[256];
     sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
+    printf("%s", buf3);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
     //printf("OUT:");
 }
