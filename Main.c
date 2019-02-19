@@ -75,14 +75,20 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
     {
         ((k->enemy_1_p)->hp) -= damage;
         if (((k->enemy_1_p)->hp) <= 0)
+        {
+            (k->enemy_1_p)->hp = 0;
             *(k->enemy_1_alive_p) = 0;
+        }
     }
     else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         ((k->enemy_2_p)->hp) -= damage;
         if (((k->enemy_2_p)->hp) <= 0)
-            k->enemy_2_alive_p = 0;
+        {
+            (k->enemy_2_p)->hp = 0;
+            *(k->enemy_2_alive_p) = 0;
+        }
     }
     else
     {
@@ -102,15 +108,21 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
     if (rand() % 2 == 1 && *k->enemy_1_alive_p == 1)
     {
         (k->enemy_1_p)->hp -= damage;
-        if ((k->enemy_1_p)->hp <= 0)
-            k->enemy_1_alive_p = 0;
+        if (((k->enemy_1_p)->hp) <= 0)
+        {
+            (k->enemy_1_p)->hp = 0;
+            *(k->enemy_1_alive_p) = 0;
+        }
     }
     else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         (k->enemy_2_p)->hp -= damage;
-        if ((k->enemy_2_p)->hp <= 0)
-            k->enemy_2_alive_p = 0;
+        if (((k->enemy_2_p)->hp) <= 0)
+        {
+            (k->enemy_2_p)->hp = 0;
+            *(k->enemy_2_alive_p) = 0;
+        }
     }
     else
     {
@@ -142,15 +154,21 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
     if (rand() % 2 == 1 && *k->enemy_1_alive_p == 1)
     {
         (k->enemy_1_p)->hp -= damage;
-        if ((k->enemy_1_p)->hp <= 0)
-            k->enemy_1_alive_p = 0;
+        if (((k->enemy_1_p)->hp) <= 0)
+        {
+            (k->enemy_1_p)->hp = 0;
+            *(k->enemy_1_alive_p) = 0;
+        }
     }
     else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         (k->enemy_2_p)->hp -= damage;
-        if ((k->enemy_2_p)->hp <= 0)
-            k->enemy_2_alive_p = 0;
+        if (((k->enemy_2_p)->hp) <= 0)
+        {
+            (k->enemy_2_p)->hp = 0;
+            *(k->enemy_2_alive_p) = 0;
+        }
     }
     else
     {
