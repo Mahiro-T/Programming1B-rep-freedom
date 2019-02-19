@@ -49,25 +49,18 @@ void change_status(void *d)
 {
     Pointer_Addres *k = d;
 
-    //printf("IN");
-    //gpointer data = &((k->dialogs_p)->your_status);
     char buf[256];
     sprintf(buf, "%s HP:%03d", ((k->hero_p)->name), ((k->hero_p)->hp));
-    printf("%s", buf);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->your_status), buf);
 
-    //data = &((k->dialogs_p)->Enemy1_status);
     char buf2[256];
     sprintf(buf2, "%s HP:%03d", (k->enemy_1_p)->name, (k->enemy_1_p)->hp);
-    printf("%s", buf2);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf2);
 
     //data = &((k->dialogs_p)->Enemy2_status);
     char buf3[256];
     sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
-    printf("%s", buf3);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
-    //printf("OUT:");
 }
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
@@ -78,7 +71,6 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
     srand((unsigned)time(NULL));
     damage = ((k->hero_p)->power_attack) + rand() % ((k->hero_p)->lucky);
 
-    printf("\n%d %d %d\n", *k->enemy_1_alive_p, damage, ((k->hero_p)->hp));
     if ((rand() % 2) == 1 && *k->enemy_1_alive_p == 1)
     {
         ((k->enemy_1_p)->hp) -= damage;
@@ -102,7 +94,6 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    printf("IN");
     int damage;
     char message[256];
     srand((unsigned)time(NULL));
@@ -125,7 +116,6 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
     {
         //攻撃を外す
     }
-    printf("OUT:");
 
     change_status(k);
 }
@@ -138,8 +128,6 @@ void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
     healing = (k->hero_p)->healing + (k->hero_p)->lucky;
 
     (k->hero_p)->hp += healing;
-
-    printf("%d\n", (k->hero_p)->hp);
 
     change_status(k);
 }
