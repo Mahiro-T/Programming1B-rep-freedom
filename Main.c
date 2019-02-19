@@ -75,17 +75,18 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
     printf("IN");
     int damage;
     char message[256];
+
     srand((unsigned)time(NULL));
     damage = ((k->hero_p)->power_attack) + rand() % ((k->hero_p)->lucky);
 
     printf("\n%d %d\n", damage, ((k->hero_p)->hp));
-    if (rand() % 1 == 1 && k->enemy_1_alive_p == 0)
+    if (rand() % 1 == 1 && *k->enemy_1_alive_p == 1)
     {
         ((k->enemy_1_p)->hp) -= damage;
         if (((k->enemy_1_p)->hp) <= 0)
-            (k->enemy_1_alive_p) = 0;
+            *(k->enemy_1_alive_p) = 0;
     }
-    else if (rand() % 1 == 1 && k->enemy_2_alive_p == 0)
+    else if (rand() % 1 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         ((k->enemy_2_p)->hp) -= damage;
