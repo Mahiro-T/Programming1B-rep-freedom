@@ -72,21 +72,20 @@ void change_status(void *d)
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    printf("IN");
     int damage;
     char message[256];
 
     srand((unsigned)time(NULL));
     damage = ((k->hero_p)->power_attack) + rand() % ((k->hero_p)->lucky);
 
-    printf("\n%d %d\n", damage, ((k->hero_p)->hp));
-    if (rand() % 1 == 1 && *k->enemy_1_alive_p == 1)
+    printf("\n%d %d %d\n", *k->enemy_1_alive_p, damage, ((k->hero_p)->hp));
+    if ((rand() % 2) == 1 && *k->enemy_1_alive_p == 1)
     {
         ((k->enemy_1_p)->hp) -= damage;
         if (((k->enemy_1_p)->hp) <= 0)
             *(k->enemy_1_alive_p) = 0;
     }
-    else if (rand() % 1 == 1 && *k->enemy_2_alive_p == 1)
+    else if (rand() % 2 == 1 && *k->enemy_2_alive_p == 1)
     {
         //Enemy2に攻撃がヒット
         ((k->enemy_2_p)->hp) -= damage;
@@ -97,7 +96,6 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
     {
         //攻撃を外す
     }
-    printf("OUT:");
 
     change_status(k);
 }
@@ -110,13 +108,13 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
     srand((unsigned)time(NULL));
     damage = (k->hero_p)->magic_attack + rand() % (k->hero_p)->lucky;
 
-    if (rand() % 1 == 1 && k->enemy_1_alive_p == 0)
+    if (rand() % 1 == 1 && *k->enemy_1_alive_p == 0)
     {
         (k->enemy_1_p)->hp -= damage;
         if ((k->enemy_1_p)->hp <= 0)
             k->enemy_1_alive_p = 0;
     }
-    else if (rand() % 1 == 1 && k->enemy_2_alive_p == 0)
+    else if (rand() % 1 == 1 && *k->enemy_2_alive_p == 0)
     {
         //Enemy2に攻撃がヒット
         (k->enemy_2_p)->hp -= damage;
@@ -156,13 +154,13 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
     char message[256];
     srand((unsigned)time(NULL));
     damage = rand() % 10 + 1;
-    if (rand() % 1 == 1 && k->enemy_1_alive_p == 0)
+    if (rand() % 1 == 1 && *k->enemy_1_alive_p == 0)
     {
         (k->enemy_1_p)->hp -= damage;
         if ((k->enemy_1_p)->hp <= 0)
             k->enemy_1_alive_p = 0;
     }
-    else if (rand() % 1 == 1 && k->enemy_2_alive_p == 0)
+    else if (rand() % 1 == 1 && *k->enemy_2_alive_p == 0)
     {
         //Enemy2に攻撃がヒット
         (k->enemy_2_p)->hp -= damage;
