@@ -97,7 +97,7 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
     }
     printf("OUT:");
 
-    change_status(&k);
+    change_status(k);
 }
 void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
@@ -127,7 +127,7 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
     }
     printf("OUT:");
 
-    change_status(&k);
+    change_status(k);
 }
 void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 {
@@ -143,7 +143,7 @@ void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
     printf("%d\n", (k->hero_p)->hp);
     printf("OUT:");
 
-    //change_status(k);
+    change_status(k);
 }
 
 void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
@@ -173,7 +173,7 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
     }
     printf("OUT1:");
 
-    change_status(&k);
+    change_status(k);
 }
 
 int main(int argc, char **argv)
