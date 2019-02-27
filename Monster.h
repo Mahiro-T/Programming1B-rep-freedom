@@ -1,7 +1,3 @@
-#include <gtk/gtk.h>
-#include "stdlib.h"
-#include "time.h"
-
 void Enemy_attack_Entrance(void *d, int taisyo)
 {
 }
