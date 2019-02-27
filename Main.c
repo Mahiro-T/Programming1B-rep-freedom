@@ -4,18 +4,7 @@
 #include <Hero.h>
 #include <Monster.h>
 
-typedef struct
-{
-    appearance_character *hero_p;
-    appearance_character *enemy_1_p;
-    appearance_character *enemy_2_p;
-
-    MainDialogs *dialogs_p;
-    int *enemy_1_alive_p;
-    int *enemy_2_alive_p;
-} Pointer_Addres;
-
-void change_battle message(void *d, char message[])
+void change_battle_message(void *d, char message[])
 {
     Pointer_Addres *k = d;
 }

@@ -1,8 +1,8 @@
 #include <gtk/gtk.h>
 #include "stdlib.h"
 #include "time.h"
-#include <Hero.h>
 #include <Monster.h>
+#include <Systems.h>
 
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
