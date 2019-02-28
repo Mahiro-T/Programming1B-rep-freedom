@@ -2,7 +2,8 @@
 #include "stdlib.h"
 #include "time.h"
 #include <Monster.h>
-#include <Systems.h>
+#include <structs.h>
+#include <GTK_tools.h>
 
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {

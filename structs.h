@@ -44,7 +44,4 @@ typedef struct
     int *enemy_2_alive_p;
 } Pointer_Addres;
 
-void change_battle_message(void *d, char message[]) {}
-void change_status(void *d) {}
-
 #endif

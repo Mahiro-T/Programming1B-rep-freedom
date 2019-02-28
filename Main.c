@@ -1,31 +1,10 @@
 #include <gtk/gtk.h>
 #include "stdlib.h"
 #include "time.h"
+#include <structs.h>
 #include <Hero.h>
 #include <Monster.h>
-
-void change_battle_message(void *d, char message[])
-{
-    Pointer_Addres *k = d;
-}
-
-void change_status(void *d)
-{
-    Pointer_Addres *k = d;
-
-    char buf[256];
-    sprintf(buf, "%s HP:%03d", ((k->hero_p)->name), ((k->hero_p)->hp));
-    gtk_label_set_text(GTK_LABEL((k->dialogs_p)->your_status), buf);
-
-    char buf2[256];
-    sprintf(buf2, "%s HP:%03d", (k->enemy_1_p)->name, (k->enemy_1_p)->hp);
-    gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf2);
-
-    //data = &((k->dialogs_p)->Enemy2_status);
-    char buf3[256];
-    sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
-    gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
-}
+#include <GTK_tools.h>
 
 int main(int argc, char **argv)
 {
@@ -69,22 +48,18 @@ int main(int argc, char **argv)
     dialogs.attack_button = gtk_button_new_with_label("攻撃");
     gtk_box_pack_start(GTK_BOX(dialogs.hbox), dialogs.attack_button, TRUE, TRUE, 0);
     g_signal_connect(dialogs.attack_button, "clicked", G_CALLBACK(Hero_power_attack), &pointers);
-    //g_signal_connect(G_OBJECT(dialogs.attack_button), "clicked", G_CALLBACK(change_status), &pointers);
 
     dialogs.magic_button = gtk_button_new_with_label("魔法");
     gtk_box_pack_start(GTK_BOX(dialogs.hbox), dialogs.magic_button, TRUE, TRUE, 0);
     g_signal_connect(dialogs.magic_button, "clicked", G_CALLBACK(Hero_magic_attack), &pointers);
-    //g_signal_connect(G_OBJECT(dialogs.attack_button), "clicked", G_CALLBACK(change_status), &pointers);
 
     dialogs.healing_button = gtk_button_new_with_label("回復");
     gtk_box_pack_start(GTK_BOX(dialogs.hbox), dialogs.healing_button, TRUE, TRUE, 0);
     g_signal_connect(dialogs.healing_button, "clicked", G_CALLBACK(Hero_healing), &pointers);
-    //g_signal_connect(G_OBJECT(dialogs.attack_button), "clicked", G_CALLBACK(change_status), &pointers);
 
     dialogs.item_button = gtk_button_new_with_label("アイテム");
     gtk_box_pack_start(GTK_BOX(dialogs.hbox), dialogs.item_button, TRUE, TRUE, 0);
     g_signal_connect(dialogs.item_button, "clicked", G_CALLBACK(Hero_item), &pointers);
-    //g_signal_connect(G_OBJECT(dialogs.item_button), "clicked", G_CALLBACK(change_status), &pointers);
 
     dialogs.hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
     gtk_box_pack_start(GTK_BOX(dialogs.vbox), dialogs.hbox, TRUE, TRUE, 0);

@@ -2,22 +2,27 @@
 #include "stdlib.h"
 #include "time.h"
 
-void Enemy_attack_Entrance(void *d, int taisyo)
+void Enemy_attack_Entrance(void *d)
 {
+    Pointer_Addres *k = d;
 }
 
-void Enemy_power_attck()
+void Enemy_power_attck(void *d)
 {
+    Pointer_Addres *k = d;
 }
 
-void Enemy_magic_attack()
+void Enemy_magic_attack(void *d)
 {
+    Pointer_Addres *k = d;
 }
 
-void Enemy_healing()
+void Enemy_healing(void *d)
 {
+    Pointer_Addres *k = d;
 }
 
-void Enemy_item()
+void Enemy_item(void *d)
 {
+    Pointer_Addres *k = d;
 }
