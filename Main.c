@@ -14,6 +14,7 @@ int main(int argc, char **argv)
 
     int enemy_1_alive_flag = 1;
     int enemy_2_alive_flag = 1;
+    int Hero_alive_flag = 1;
 
     srand((unsigned)time(NULL));
     appearance_character Hero = {"Hero", rand() % 40 + 80, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6},
@@ -25,7 +26,7 @@ int main(int argc, char **argv)
     appear2 = &Enemy_1;
     appear3 = &Enemy_2;
 
-    Pointer_Addres pointers = {appear1, appear2, appear3, di1, &enemy_1_alive_flag, &enemy_2_alive_flag};
+    Pointer_Addres pointers = {appear1, appear2, appear3, di1, &enemy_1_alive_flag, &enemy_2_alive_flag, &Hero_alive_flag};
 
     gtk_init(&argc, &argv);
 

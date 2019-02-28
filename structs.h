@@ -33,6 +33,7 @@ typedef struct
     int magic_guard;
     int lucky;
     int healing;
+    char message[256];
 } appearance_character;
 
 typedef struct
@@ -44,6 +45,7 @@ typedef struct
     MainDialogs *dialogs_p;
     int *enemy_1_alive_p;
     int *enemy_2_alive_p;
+    int *Hero_alive_p;
 } Pointer_Addres;
 
 #endif

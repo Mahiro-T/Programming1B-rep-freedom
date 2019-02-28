@@ -5,6 +5,26 @@
 #include <structs.h>
 #include <GTK_tools.h>
 
+void dead_message(Pointer_Addres *k, int which)
+{
+
+    switch (which)
+    {
+    case 1:
+        // gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
+        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
+        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
+
+        break;
+    case 2:
+        //  gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
+        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
+        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
+
+        break;
+    }
+}
+
 void change_battle_message(void *d, char buf[], int which)
 {
     Pointer_Addres *k = d;
@@ -45,7 +65,7 @@ void change_status(void *d)
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
 }
 
-Program_reset()
+void Program_reset()
 {
     execl("./a.exe", NULL); //for Windows
     execl("./a.out", NULL); //for Unix

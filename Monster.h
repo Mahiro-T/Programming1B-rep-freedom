@@ -9,3 +9,5 @@ extern void Enemy_magic_attack(appearance_character *k, Pointer_Addres *address)
 extern void Enemy_healing(appearance_character *k, Pointer_Addres *address);
 
 extern void Enemy_item(appearance_character *k, Pointer_Addres *address);
+
+extern void Enemy_attack(Pointer_Addres *k);

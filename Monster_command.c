@@ -18,11 +18,13 @@ void Enemy_power_attck(appearance_character *k, Pointer_Addres *address)
     {
         (address->hero_p)->hp = 0;
         sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+        dead_message(k, 1);
     }
     else
     {
         sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
     }
+    sprintf(k->message, "%s", message);
 }
 
 void Enemy_magic_attack(appearance_character *k, Pointer_Addres *address)
@@ -39,11 +41,13 @@ void Enemy_magic_attack(appearance_character *k, Pointer_Addres *address)
     {
         (address->hero_p)->hp = 0;
         sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+        dead_message(k, 1);
     }
     else
     {
         sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
     }
+    sprintf(k->message, "%s", message);
 }
 
 void Enemy_healing(appearance_character *k, Pointer_Addres *address)
@@ -52,9 +56,12 @@ void Enemy_healing(appearance_character *k, Pointer_Addres *address)
     char message[256];
 
     srand((unsigned)time(NULL));
-    heal = (k->healing) + rand() % (k->lucky);
+    heal = (k->healing) + (rand() % (k->lucky) + 5);
+
+    sprintf(message, "%sはじゅもんをとなえた! %s のHPが %dかいふく!", k->name, k->name, heal);
 
     k->hp += heal;
+    sprintf(k->message, "%s", message);
 }
 
 void Enemy_item(appearance_character *k, Pointer_Addres *address)
@@ -71,11 +78,14 @@ void Enemy_item(appearance_character *k, Pointer_Addres *address)
     {
         (address->hero_p)->hp = 0;
         sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+        dead_message(k, 1);
     }
     else
     {
-        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
+        if (*k->Hero_alive_p == 1)
+            sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
     }
+    sprintf(k->message, "%s", message);
 }
 
 //敵モンスターの処理開始はここから
@@ -102,5 +112,19 @@ void Enemy_attack_Entrance(appearance_character *k, Pointer_Addres *address)
     case 3:
         Enemy_item(k, address);
         break;
+    }
+}
+
+void Enemy_attack(Pointer_Addres *k)
+{
+    if (*k->enemy_1_alive_p == 1)
+    {
+        Enemy_attack_Entrance((k->enemy_1_p), k);
+        change_battle_message(k, (k->enemy_1_p)->message, 2);
+    }
+    if (*k->enemy_2_alive_p == 1)
+    {
+        Enemy_attack_Entrance((k->enemy_2_p), k);
+        change_battle_message(k, (k->enemy_2_p)->message, 3);
     }
 }
