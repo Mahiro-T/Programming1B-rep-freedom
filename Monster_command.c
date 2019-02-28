@@ -14,21 +14,42 @@ void Enemy_power_attck(appearance_character *k, Pointer_Addres *address)
     damage = (k->power_attack) + rand() % (k->lucky);
 
     (address->hero_p)->hp -= damage;
+    if (((address->hero_p)->hp) < 0)
+    {
+        (address->hero_p)->hp = 0;
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+    }
+    else
+    {
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
+    }
 }
 
 void Enemy_magic_attack(appearance_character *k, Pointer_Addres *address)
 {
     int damage;
+    char message[256];
 
     srand((unsigned)time(NULL));
     damage = (k->magic_attack) + rand() % (k->lucky);
 
     (address->hero_p)->hp -= damage;
+
+    if (((address->hero_p)->hp) < 0)
+    {
+        (address->hero_p)->hp = 0;
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+    }
+    else
+    {
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
+    }
 }
 
 void Enemy_healing(appearance_character *k, Pointer_Addres *address)
 {
     int heal;
+    char message[256];
 
     srand((unsigned)time(NULL));
     heal = (k->healing) + rand() % (k->lucky);
@@ -39,11 +60,22 @@ void Enemy_healing(appearance_character *k, Pointer_Addres *address)
 void Enemy_item(appearance_character *k, Pointer_Addres *address)
 {
     int damage;
+    char message[256];
 
     srand((unsigned)time(NULL));
     damage = (rand() % 10 + 5) + (k->lucky);
 
     (address->hero_p)->hp -= damage;
+
+    if (((address->hero_p)->hp) < 0)
+    {
+        (address->hero_p)->hp = 0;
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+    }
+    else
+    {
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
+    }
 }
 
 //敵モンスターの処理開始はここから

@@ -5,9 +5,26 @@
 #include <structs.h>
 #include <GTK_tools.h>
 
-void change_battle_message(void *d, char message[])
+void change_battle_message(void *d, char buf[], int which)
 {
     Pointer_Addres *k = d;
+    switch (which)
+    {
+    case 1:
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
+
+        break;
+
+    case 2:
+
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
+        break;
+
+    case 3:
+
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
+        break;
+    }
 }
 
 void change_status(void *d)
