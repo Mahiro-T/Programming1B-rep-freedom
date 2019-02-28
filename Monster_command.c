@@ -82,8 +82,7 @@ void Enemy_item(appearance_character *k, Pointer_Addres *address)
     }
     else
     {
-        if (*k->Hero_alive_p == 1)
-            sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
+        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた!", k->name, k->name, (address->hero_p)->name, damage);
     }
     sprintf(k->message, "%s", message);
 }

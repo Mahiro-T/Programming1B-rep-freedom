@@ -5,22 +5,53 @@
 #include <structs.h>
 #include <GTK_tools.h>
 
-void dead_message(Pointer_Addres *k, int which)
+void End(void *d, int which)
 {
+    Pointer_Addres *k = d;
+    char buf[256];
 
     switch (which)
     {
+    case 0:
+        sprintf(buf, " ");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
+        sprintf(buf, "敵を倒した!");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
+        sprintf(buf, " ");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
+        End(k, 1);
+        break;
+
     case 1:
-        // gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
-        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
-        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
+        *(k->Hero_alive_p) = 0;
+        break;
+    }
+}
+
+void dead_message(void *d, int which)
+{
+    Pointer_Addres *k = d;
+    char buf[256];
+
+    switch (which)
+    {
+    case 0:
+        sprintf(buf, " ");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
+        sprintf(buf, "ざんねん! あなたのぼうけんはここでおわってしまった!");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
+        sprintf(buf, " ");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
+        End(k, 1);
 
         break;
+    case 1:
+        sprintf(buf, "%s はたおれた!", (k->enemy_1_p)->name);
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
+        break;
     case 2:
-        //  gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
-        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
-        //gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
-
+        sprintf(buf, "%s はたおれた!", (k->enemy_2_p)->name);
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
         break;
     }
 }
