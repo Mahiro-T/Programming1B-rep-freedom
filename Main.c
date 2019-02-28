@@ -104,6 +104,13 @@ int main(int argc, char **argv)
     gtk_box_pack_start(GTK_BOX(dialogs.vbox), dialogs.Enemy2_status, TRUE, TRUE, 0);
     change_status(&pointers);
 
+    dialogs.hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+    gtk_box_pack_start(GTK_BOX(dialogs.vbox), dialogs.hbox, TRUE, TRUE, 0);
+
+    dialogs.Reset_button = gtk_button_new_with_label("リセット");
+    gtk_box_pack_start(GTK_BOX(dialogs.hbox), dialogs.Reset_button, TRUE, TRUE, 0);
+    g_signal_connect(dialogs.Reset_button, "clicked", G_CALLBACK(Program_reset), NULL);
+
     gtk_widget_show_all(dialogs.window);
     gtk_main();
     //ここまで設定 以下より戦闘処理

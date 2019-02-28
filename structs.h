@@ -19,6 +19,8 @@ typedef struct
     GtkWidget *your_status;
     GtkWidget *Enemy1_status;
     GtkWidget *Enemy2_status;
+
+    GtkWidget *Reset_button;
 } MainDialogs;
 
 typedef struct
