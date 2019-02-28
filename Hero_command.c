@@ -4,7 +4,6 @@
 #include <Monster.h>
 #include <structs.h>
 #include <GTK_tools.h>
-#include <unistd.h>
 
 void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
