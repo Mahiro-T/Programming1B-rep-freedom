@@ -89,8 +89,10 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
         //攻撃を外す
     }
 
-    Enemy_attack_Entrance((k->enemy_1_p), k);
-    Enemy_attack_Entrance((k->enemy_1_p), k);
+    if (*k->enemy_1_alive_p == 1)
+        Enemy_attack_Entrance((k->enemy_1_p), k);
+    if (*k->enemy_2_alive_p == 1)
+        Enemy_attack_Entrance((k->enemy_2_p), k);
     change_status(k);
 }
 void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
@@ -103,6 +105,10 @@ void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 
     (k->hero_p)->hp += healing;
 
+    if (*k->enemy_1_alive_p == 1)
+        Enemy_attack_Entrance((k->enemy_1_p), k);
+    if (*k->enemy_2_alive_p == 1)
+        Enemy_attack_Entrance((k->enemy_2_p), k);
     change_status(k);
 }
 
@@ -137,5 +143,9 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
         //攻撃を外す
     }
 
+    if (*k->enemy_1_alive_p == 1)
+        Enemy_attack_Entrance((k->enemy_1_p), k);
+    if (*k->enemy_2_alive_p == 1)
+        Enemy_attack_Entrance((k->enemy_2_p), k);
     change_status(k);
 }

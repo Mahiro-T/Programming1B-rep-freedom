@@ -17,8 +17,8 @@ int main(int argc, char **argv)
 
     srand((unsigned)time(NULL));
     appearance_character Hero = {"Hero", rand() % 40 + 80, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6, rand() % 12 + 6},
-                         Enemy_1 = {"Linus_1", rand() % 10 + 50, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1},
-                         Enemy_2 = {"Linus_2", rand() % 10 + 50, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1};
+                         Enemy_1 = {"Linus_1", rand() % 10 + 70, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1},
+                         Enemy_2 = {"Linus_2", rand() % 10 + 70, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1, rand() % 6 + 1};
 
     appearance_character *appear1, *appear2, *appear3;
     appear1 = &Hero;
