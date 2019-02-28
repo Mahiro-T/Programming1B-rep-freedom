@@ -1,14 +1,10 @@
-#ifndef MONSTER_H
-#define MONSTER_H
+extern void Enemy_attack_Entrance(void *d);
 
-void Enemy_attack_Entrance(void *d);
+extern void Enemy_power_attck(void *d);
 
-void Enemy_power_attck(void *d);
+extern void Enemy_magic_attack(void *d);
 
-void Enemy_magic_attack(void *d);
+extern void Enemy_healing(void *d);
 
-void Enemy_healing(void *d);
+extern void Enemy_item(void *d);
 
-void Enemy_item(void *d);
-
-#endif
