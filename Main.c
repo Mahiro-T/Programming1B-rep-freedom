@@ -3,8 +3,8 @@
 #include "time.h"
 #include <structs.h>
 #include <Hero.h>
-#include <Monster.h>
 #include <GTK_tools.h>
+#include <Monster.h>
 
 int main(int argc, char **argv)
 {

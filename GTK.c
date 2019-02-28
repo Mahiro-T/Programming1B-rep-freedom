@@ -1,9 +1,9 @@
 #include "stdlib.h"
 #include "time.h"
 #include <gtk/gtk.h>
-#include <Hero.h>
 #include <Monster.h>
 #include <structs.h>
+#include <GTK_tools.h>
 
 void change_battle_message(void *d, char message[])
 {

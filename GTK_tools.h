@@ -1,2 +1,2 @@
-void change_battle_message(void *d, char message[]) {}
-void change_status(void *d) {}
+extern void change_battle_message(void *d, char message[]);
+extern void change_status(void *d);

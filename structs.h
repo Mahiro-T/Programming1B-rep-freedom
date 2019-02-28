@@ -1,5 +1,5 @@
-#ifndef FOO_H
-#define FOO_H
+#ifndef STRUCT_H
+#define STRUCT_H
 
 typedef struct
 {
