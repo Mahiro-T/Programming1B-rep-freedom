@@ -15,3 +15,6 @@ Hero.o:	Monster_command.c
 
 GTK.o:	GTK.c
 		gcc -c GTK.c -I $(MAKEFILE_DIR) -I $(GTK_pass)
+
+clean:	Monster_command.o Main.o Hero_command.o GTK.o
+		rm -f Monster_command.o Main.o Hero_command.o GTK.o

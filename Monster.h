@@ -1,14 +1,11 @@
-#ifndef MONSTER_H
-#define MONSTER_H
+#include <structs.h>
 
-void Enemy_attack_Entrance(void *d);
+extern void Enemy_attack_Entrance(appearance_character *k, Pointer_Addres *address);
 
-void Enemy_power_attck(void *d);
+extern void Enemy_power_attck(appearance_character *k, Pointer_Addres *address);
 
-void Enemy_magic_attack(void *d);
+extern void Enemy_magic_attack(appearance_character *k, Pointer_Addres *address);
 
-void Enemy_healing(void *d);
+extern void Enemy_healing(appearance_character *k, Pointer_Addres *address);
 
-void Enemy_item(void *d);
-
-#endif
+extern void Enemy_item(appearance_character *k, Pointer_Addres *address);
