@@ -44,3 +44,9 @@ void change_status(void *d)
     sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
 }
+
+Program_reset()
+{
+    execl("./a.exe", NULL); //for Windows
+    execl("./a.out", NULL); //for Unix
+}
