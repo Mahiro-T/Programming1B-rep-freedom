@@ -4,6 +4,7 @@
 #include <Monster.h>
 #include <structs.h>
 #include <GTK_tools.h>
+#include <unistd.h>
 
 void End(void *d, int which)
 {
