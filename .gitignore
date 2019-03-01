@@ -31,3 +31,4 @@
 # Debug files
 *.dSYM/
 .vscode/c_cpp_properties.json
+core.a.out.29874
