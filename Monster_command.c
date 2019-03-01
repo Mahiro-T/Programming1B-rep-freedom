@@ -14,11 +14,11 @@ void Enemy_power_attck(appearance_character *k, Pointer_Addres *address)
     damage = (k->power_attack) + rand() % (k->lucky);
 
     (address->hero_p)->hp -= damage;
-    if (((address->hero_p)->hp) < 0)
+    if (((address->hero_p)->hp) <= 0)
     {
         (address->hero_p)->hp = 0;
-        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
-        dead_message(k, 1);
+        //sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+        dead_message(address, 0);
     }
     else
     {
@@ -40,8 +40,8 @@ void Enemy_magic_attack(appearance_character *k, Pointer_Addres *address)
     if (((address->hero_p)->hp) < 0)
     {
         (address->hero_p)->hp = 0;
-        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
-        dead_message(k, 1);
+        //sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+        dead_message(address, 0);
     }
     else
     {
@@ -74,11 +74,11 @@ void Enemy_item(appearance_character *k, Pointer_Addres *address)
 
     (address->hero_p)->hp -= damage;
 
-    if (((address->hero_p)->hp) < 0)
+    if ((address->hero_p)->hp <= 0)
     {
         (address->hero_p)->hp = 0;
-        sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
-        dead_message(k, 1);
+        //sprintf(message, "%sのこうげき! %s は %s に %dのダメージをあたえた! %s は死んでしまった!", k->name, k->name, (address->hero_p)->name, damage, (address->hero_p)->name);
+        dead_message(address, 0);
     }
     else
     {
@@ -116,14 +116,16 @@ void Enemy_attack_Entrance(appearance_character *k, Pointer_Addres *address)
 
 void Enemy_attack(Pointer_Addres *k)
 {
-    if (*k->enemy_1_alive_p == 1)
+    if (*(k->enemy_1_alive_p) == 1)
     {
         Enemy_attack_Entrance((k->enemy_1_p), k);
-        change_battle_message(k, (k->enemy_1_p)->message, 2);
+        if (*(k->Hero_alive_p) == 1)
+            change_battle_message(k, (k->enemy_1_p)->message, 2);
     }
-    if (*k->enemy_2_alive_p == 1)
+    if (*(k->enemy_2_alive_p) == 1)
     {
         Enemy_attack_Entrance((k->enemy_2_p), k);
-        change_battle_message(k, (k->enemy_2_p)->message, 3);
+        if (*(k->Hero_alive_p) == 1)
+            change_battle_message(k, (k->enemy_2_p)->message, 3);
     }
 }

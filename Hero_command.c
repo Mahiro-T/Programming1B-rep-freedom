@@ -9,7 +9,7 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
 
     Pointer_Addres *k = user_data;
-    if (*k->Hero_alive_p == 1)
+    if (*(k->Hero_alive_p) == 1)
     {
         int damage;
         char message[256];
@@ -68,7 +68,7 @@ void Hero_power_attack(GtkWidget *entryMainValue, gpointer user_data)
 void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    if (*k->Hero_alive_p == 1)
+    if (*(k->Hero_alive_p) == 1)
     {
         int damage;
         char message[256];
@@ -127,7 +127,7 @@ void Hero_magic_attack(GtkWidget *entryMainValue, gpointer user_data)
 void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    if (*k->Hero_alive_p == 1)
+    if (*(k->Hero_alive_p) == 1)
     {
         int healing;
         char message[256];
@@ -153,7 +153,7 @@ void Hero_healing(GtkWidget *entryMainValue, gpointer user_data)
 void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
 {
     Pointer_Addres *k = user_data;
-    if (*k->Hero_alive_p == 1)
+    if (*(k->Hero_alive_p) == 1)
     {
         int damage;
         char message[256];
@@ -184,6 +184,10 @@ void Hero_item(GtkWidget *entryMainValue, gpointer user_data)
                 *(k->enemy_2_alive_p) = 0;
                 sprintf(message, "%s のこうげき! %s は %s に %d のダメージをあたえた! %s をたおした!", (k->hero_p)->name, (k->hero_p)->name, (k->enemy_2_p)->name, damage, (k->enemy_2_p)->name);
                 dead_message(k, 2);
+            }
+            else
+            {
+                sprintf(message, "%s のこうげき! しかし %s のこうげきははずれてしまった!", (k->hero_p)->name, (k->hero_p)->name);
             }
         }
         else

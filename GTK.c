@@ -8,7 +8,7 @@
 void End(void *d, int which)
 {
     Pointer_Addres *k = d;
-    char buf[256];
+    char buf[300];
 
     switch (which)
     {
@@ -31,18 +31,24 @@ void End(void *d, int which)
 void dead_message(void *d, int which)
 {
     Pointer_Addres *k = d;
-    char buf[256];
-
+    char buf[300];
+    ;
+    char buf2[256];
+    ;
+    char buf3[256];
     switch (which)
     {
     case 0:
+
         sprintf(buf, " ");
         gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_1), buf);
-        sprintf(buf, "ざんねん! あなたのぼうけんはここでおわってしまった!");
-        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf);
-        sprintf(buf, " ");
-        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf);
-        End(k, 1);
+
+        sprintf(buf2, "ざんねん! あなたのぼうけんはここでおわってしまった!");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_2), buf2);
+
+        sprintf(buf3, " ");
+        gtk_label_set_text(GTK_LABEL((k->dialogs_p)->label_story_3), buf3);
+        *(k->Hero_alive_p) = 0;
 
         break;
     case 1:
@@ -90,7 +96,6 @@ void change_status(void *d)
     sprintf(buf2, "%s HP:%03d", (k->enemy_1_p)->name, (k->enemy_1_p)->hp);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy1_status), buf2);
 
-    //data = &((k->dialogs_p)->Enemy2_status);
     char buf3[256];
     sprintf(buf3, "%s HP:%03d", (k->enemy_2_p)->name, (k->enemy_2_p)->hp);
     gtk_label_set_text(GTK_LABEL((k->dialogs_p)->Enemy2_status), buf3);
